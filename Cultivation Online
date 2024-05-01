@@ -1,0 +1,123 @@
+local Library = loadstring(Game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
+
+
+local function Fight()
+    while _G.fight do
+        game:GetService("ReplicatedStorage").GenerateFight:FireServer()      
+        task.wait(1)
+    end 
+end
+
+local function Fire()
+    while _G.fire do
+        local args = {[1] = "Fire"}
+        game:GetService("ReplicatedStorage").ComprehendDao:FireServer(unpack(args))        
+        task.wait(0.1)
+    end 
+end
+
+local function Earth()
+    while _G.earth do
+        local args = {[1] = "Earth"}
+        game:GetService("ReplicatedStorage").ComprehendDao:FireServer(unpack(args))        
+        task.wait(0.1)
+    end 
+end
+
+local function Water()
+    while _G.water do
+        local args = {[1] = "Water"}
+        game:GetService("ReplicatedStorage").ComprehendDao:FireServer(unpack(args))        
+        task.wait(0.1)
+    end 
+end
+
+local function Air()
+    while _G.air do
+        local args = {[1] = "Air"}
+        game:GetService("ReplicatedStorage").ComprehendDao:FireServer(unpack(args))        
+        task.wait(0.1)
+    end 
+end
+
+local function Pill1()
+    while _G.pill1 do
+        local args = {[1] = 2,[2] = 1}
+        game:GetService("ReplicatedStorage").EatPill:FireServer(unpack(args))
+        task.wait(0.5)
+    end 
+end
+
+local function buypill2()
+    while _G.buypill2 do
+        local args = {[1] = 2,[2] = 1}
+        game:GetService("ReplicatedStorage").EatPill:FireServer(unpack(args))
+        task.wait(0.5)
+    end 
+end
+
+local function Pill2()
+    while _G.pill2 do
+        local args = {[1] = 3,[2] = 1}
+        game:GetService("ReplicatedStorage").EatPill:FireServer(unpack(args))
+        task.wait(0.5)
+    end 
+end
+
+local function Sect()
+    while _G.sect do
+        game:GetService("ReplicatedStorage").SectChallenge:FireServer()
+        task.wait(30)
+    end 
+end
+
+local ui = Library:NewWindow("Cultivation Online")
+
+local a = ui:NewSection("Op")
+local c = ui:NewSection("Not Op But ye")
+local b = ui:NewSection("Auto Pills")
+
+a:CreateToggle("inf fight", function(value)
+    _G.fight = value
+    Fight()
+end)
+
+a:CreateToggle("inf fire dao", function(value)
+        _G.fire = value
+        Fire()
+end)
+
+a:CreateToggle("inf earth dao", function(value)
+    _G.earth = value
+    Earth()
+end)
+
+a:CreateToggle("inf water dao", function(value)
+    _G.water = value
+    Water()
+end)
+
+a:CreateToggle("inf air dao", function(value)
+    _G.air = value
+    Air()
+end)
+
+b:CreateToggle("use pill 1", function(value)
+    _G.pill1 = value
+    Pill1()
+end)
+
+b:CreateToggle("buy pill 2", function(value)
+    _G.buypill2 = value
+    buypill2()
+end)
+
+b:CreateToggle("use pill 2", function(value)
+    _G.sect = value
+    Sect()
+end)
+
+c:CreateToggle("Auto Sect fight ( 30sec )", function(value)
+    _G.pill2 = value
+    Pill2()
+end)
